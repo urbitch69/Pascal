@@ -1,0 +1,14 @@
+var s: string;
+var surname, name, patronymic: string;
+begin
+  writeln('Введiть Прiзвище: ');
+  readln(surname);
+  writeln('Введiть Iм''я: ');
+  readln(name);
+  writeln('Введiть По батьковi: ');
+  readln(patronymic);
+  s := surname + ' ' + name + ' ' + patronymic;
+  writeln(s);
+  s := name + ' ' + patronymic + ' ' + surname;
+  writeln(s);
+end.
