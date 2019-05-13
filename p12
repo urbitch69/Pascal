@@ -1,0 +1,37 @@
+program p1;
+var
+  A: array[1..1000] of integer;
+
+begin
+  Randomize();
+  var len: integer := random(255) + 1;
+  var str: string := '';
+  for var i := 1 to len do
+    str += chr(Random(20) + 48);
+  Writeln(str);
+  var k: integer := 1;
+  var j: integer;
+  var count: integer := 0;
+  while (k <= length(str)) do
+  begin
+    if str[k] in ['0'..'9'] then
+    begin
+      inc(count);
+      j := k;
+      while (j <= length(str)) do
+      begin
+        if not (str[j] in ['0'..'9']) then
+        begin
+          A[count] := j - k;
+          break;
+        end;
+        inc(j);
+      end;
+    end;
+    inc(k);
+  end;
+  var max := A[1];
+  for var i := 1 to count do
+    if A[i] > max then max := A[i];
+  writeln(max);
+end.
